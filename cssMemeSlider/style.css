@@ -1,0 +1,180 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 3em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #0c962f;
+    background-color: #09152b;
+}
+
+.main-container {
+    transition: all 1s linear;
+    width: 32rem;
+}
+
+.main-container input {
+    display: none;
+}
+
+.slides-container {
+    overflow: hidden;
+}
+
+.slides {
+    display: flex;
+    transition: all 1s ease-in-out;
+}
+
+.slides>img {
+    max-width: 100%;
+}
+
+
+.titles-controls-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titles-container {
+    width: 50%;
+    margin: 0.5rem 0 0 0.5rem;
+    flex: 1;
+    overflow: hidden;
+}
+
+.titles {
+    transition: all 1s ease-in-out;
+    display: flex;
+    white-space: nowrap;
+}
+
+.titles p {
+    font-size: 18px;
+    width: 100%;
+    min-width: 100%;
+}
+
+.controls {
+    transform: translateX(0);
+    display: flex;
+}
+
+.controls label {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 1s ease-out;
+}
+
+.controls label span {
+    display: inline-block;
+    z-index: 2;
+    width: 1rem;
+    height: 1rem;
+    transition: all 0.1s linear;
+    border: 0.25rem solid #0c962f;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.controls label:hover span {
+    border-color: #19c945;
+    background-color: #19c945;
+}
+
+#radio-1:checked~.titles-controls-container .controls label:nth-of-type(1) span {
+    border-color: #19c945;
+    background-color: #19c945;
+}
+
+#radio-2:checked~.titles-controls-container .controls label:nth-of-type(2) span {
+    border-color: #19c945;
+    background-color: #19c945;
+}
+
+#radio-3:checked~.titles-controls-container .controls label:nth-of-type(3) span {
+    border-color: #19c945;
+    background-color: #19c945;
+}
+
+#radio-4:checked~.titles-controls-container .controls label:nth-of-type(4) span {
+    border-color: #19c945;
+    background-color: #19c945;
+}
+
+#radio-1:checked~.slides-container .slides {
+    transform: translateX(0%);
+}
+
+#radio-2:checked~.slides-container .slides {
+    transform: translateX(-100%);
+}
+
+#radio-3:checked~.slides-container .slides {
+    transform: translateX(-200%);
+}
+
+#radio-4:checked~.slides-container .slides {
+    transform: translateX(-300%);
+}
+
+#radio-1:checked~.titles-controls-container .titles-container .titles {
+    transform: translateX(0%);
+}
+
+#radio-2:checked~.titles-controls-container .titles-container .titles {
+    transform: translateX(-100%);
+}
+
+#radio-3:checked~.titles-controls-container .titles-container .titles {
+    transform: translateX(-200%);
+}
+
+#radio-4:checked~.titles-controls-container .titles-container .titles {
+    transform: translateX(-300%);
+}
+
+@media (max-width: 767.98px) {
+    .titles-controls-container {
+        flex-direction: column-reverse;
+    }
+
+    .controls {
+        justify-content: center;
+    }
+
+    .controls label {
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 560px) {
+    .main-container {
+        width: 25rem;
+    }    
+}
+
+@media (max-width: 440px) {
+    .main-container {
+        width: 15rem;
+    }   
+    
+    .titles{
+        gap: 5px;
+    }
+}
